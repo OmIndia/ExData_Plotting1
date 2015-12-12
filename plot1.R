@@ -3,7 +3,7 @@ if (exists("pow_consume"))
 print("Exists")
 
 } else {
-pow_consume<-read.csv("household_power_consumption.txt",sep=";")
+pow_consume<-read.table("household_power_consumption.txt",sep=";",header = TRUE,na.strings="?")
 
 pow_consume[,1] = as.Date(factor(pow_consume[,1]),format = "%d/%m/%Y")
 
@@ -17,7 +17,7 @@ pow_consume_final$newdate <- strptime(paste(pow_consume_final$Date, pow_consume_
 
 png(filename = "plot1.png",width = 480, height = 480, units = "px", pointsize = 12)
 
-hist((as.numeric(levels(pow_consume_final$Global_active_power))[pow_consume_final$Global_active_power]),xlab="Global Active Power(kilowatts)",ylab="Frequency",col="red",main="Global Active Power")
+hist((pow_consume_final$Global_active_power),xlab="Global Active Power(kilowatts)",ylab="Frequency",col="red",main="Global Active Power")
 
 dev.off()
 
