@@ -25,7 +25,7 @@ with(pow_consume_final,{
       lines(newdate, pow_consume_final$Sub_metering_1, col = "black")
       lines(newdate, pow_consume_final$Sub_metering_2, col = "red")
       lines(newdate, pow_consume_final$Sub_metering_3, col = "blue")
-      legend("topright", pch = c("-"), col = c("black","red","blue"), legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"))
+      legend("topright", lty = 1, col = c("black","red","blue"), legend = c("Sub_metering_1", "Sub_metering_2","Sub_metering_3"))
        })
 plot(pow_consume_final$newdate,pow_consume_final$Global_reactive_power,type="l", xlab="datetime",ylab="Global_reactive_power")
 
